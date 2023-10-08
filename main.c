@@ -3,7 +3,7 @@
 #ifdef _WIN32
 #include <SDL/SDL.h> /* Windows-specific SDL2 library */
 #else
-#include "include/SDL3/SDL.h" /* macOS- and GNU/Linux-specific */
+#include "include/SDL2/SDL.h" /* macOS- and GNU/Linux-specific */
 #endif
 
 /* Sets constants */
@@ -27,9 +27,11 @@ int main (int argc, char **argv)
 
   /* Creates a SDL window */
   window = SDL_CreateWindow("SDL Example", /* Title of the SDL window */
+			    SDL_WINDOWPOS_UNDEFINED, /* Position x of the window */
+			    SDL_WINDOWPOS_UNDEFINED, /* Position y of the window */
 			    WIDTH, /* Width of the window in pixels */
 			    HEIGHT, /* Height of the window in pixels */
-			    SDL_WINDOW_RESIZABLE); /* Additional flag(s) */
+			    0); /* Additional flag(s) */
 
   /* Checks if window has been created; if not, exits program */
   if (window == NULL) {
