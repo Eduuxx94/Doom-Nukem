@@ -4,6 +4,7 @@
 #include <SDL/SDL.h> /* Windows-specific SDL2 library */
 #else
 #include "include/SDL2/SDL.h" /* macOS- and GNU/Linux-specific */
+#include "include/SDL2/SDL_image.h"
 #endif
 
 /* Sets constants */
@@ -24,6 +25,7 @@ int main (int argc, char **argv)
     fprintf(stderr, "SDL failed to initialise: %s\n", SDL_GetError());
     return 1;
   }
+  printf("%i\n" , IMG_Init(IMG_INIT_PNG));
 
   /* Creates a SDL window */
   window = SDL_CreateWindow("SDL Example", /* Title of the SDL window */
